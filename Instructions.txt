@@ -1,0 +1,29 @@
+Instructions for how to compile this program: 
+Relationships: 
+When adding a person to a boat, the Boat.addPerson method will not allow more than one person of occupation "Captain" to be added to the boat.  
+The person's occupation must begin with a capital letter and be spelled correctly.  
+When adding a new occupation to a Person, the Person.setOccupation method will not allow a person to have duplicates of the same occupation added. E.g a person cannot be a "Captain" and a "Captain". 
+This method will also not allow a person to have an occupation set as "Captain" if they already contain an occupation "Crew" or vice versa. 
+However, the Person is allowed to have more than one occupation, e.g "Captain" and "Owner". 
+When adding a Boat to a Marina, firstly the Marina.checkCanEnterMarina method will call the Boat.checkPerson method, to ensure the boat being added has at least one associated person on board.  
+ The Marina.checkCanEnterMarina method will then check the remaining space in the Marina by calling the Marina.checkRemainingSpace method (this returns the number of whole spaces remaining in the Marina, e.g if a Marina contains 3 spaces and contains one boat taking up 1.5 spaces, it will round up to 1 whole space remaining).  
+An error message will be outputted at each stage if any of these conditions are not fully met, and the program will stop at that point.  
+Reading the file: 
+The file must be formatted as such: 
+New class is indicated by new line = "|", new line = "", new line = className 
+New object is indicated by new line = "|", new line = !"" 
+Formatting the file 
+Adding new Classes/Objects using the stage_5_input.txt file 
+Adding new class: 
+Will detect new line = "|", new line = "", and then search for a next word on the next line. If the word matches one of the existing classes and create a new object of this class.  
+Adding a new object: 
+Will detect New line ="", new line = "objectFirstAttribute", and create a new object using the following lines. This object will then be added to an ArrayList<Object> of these objects, which will then be added to the arrayListOfEverything ArrayList<ArrayList> (to be passed back to the main program).  
+Adding new class:  
+To indicate a new class in the stage_5_input.txt file, add the delimiter "|", "", "className". 
+Adding a new class will require the class to be constructed within the program.  
+This class will require an ArrayList<newClass> to hold each object created of this class.  
+This ArrayList<newClass> should be added to the ArrayList<ArrayList> arrayListofEverything at the end of the formatFile method – this will allow it to be passed back to the main program where it can be printed by the printCreatedObjects method. 
+Create a new "case:" for this class within the switch statement of the Main.formatFile method, and a new "readingState" to indicate when objects being read are of this class. The switch statement should contain code (as with the current switch statements) to read in the relevant attributes of each object, before constructing the object itself and adding it to the ArrayList. 
+This case will need to be re-created for the condition that a new object is being read (rather than a new class) in the condition that the line after the first delimited "|" is not empty (and in fact contains the first attribute of the new object).  
+Tests for the final method (Main.printCreatedObjects) will output the objects created from the text file as a string shows the overall output of these combined methods works accordingly.  
+Separate test classes have been created for corresponding classes to test their methods specifically. 
